@@ -15,9 +15,11 @@ WebViewer({
       onClick: function() {
         // Save annotations when button is clicked
         // widgets and links will remain in the document without changing so it isn't necessary to export them
-        var xfdfString = annotManager.exportAnnotations({ links: false, widgets: false });
-        saveXfdfString(DOCUMENT_ID, xfdfString).then(function() {
-          alert('Annotations saved successfully.');
+        annotManager.exportAnnotations({ links: false, widgets: false })
+        .then(function(xfdfString) {
+          saveXfdfString(DOCUMENT_ID, xfdfString).then(function() {
+            alert('Annotations saved successfully.');
+          });
         });
       }
     });
