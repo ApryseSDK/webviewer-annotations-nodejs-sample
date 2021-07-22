@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run download-webviewer",
-    "download-webviewer": "npx @pdftron/webviewer-downloader --webviewerLocation client/lib",
+    "postinstall": "node tools/copy-webviewer-files.js",
     "start": "node server/serve.js"
   },
   "author": "PDFTron Systems Inc.",
   "devDependencies": {
-    "@pdftron/webviewer-downloader": "^1.0.7",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "fs-extra": "^7.0.1",
     "opn": "^5.4.0"
+  },
+  "dependencies": {
+    "@pdftron/webviewer": "^8.0.0"
   }
 }
